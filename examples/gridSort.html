@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <meta name="Author" content="TanShenghu">
+    <title>前端列表排序 组件</title>
+    <link rel="stylesheet" href="http://www.tanshenghu.com/static/css/base.css">
+    <script src="http://a.alipayobjects.com/??seajs/seajs/2.2.0/sea.js,jquery/jquery/1.8.2/jquery.js"></script>
+    <script>
+    seajs.config({
+      paths: {
+            host: 'http://www.tanshenghu.com',
+            widget: 'http://www.tanshenghu.com/widget'
+        },
+        alias: {
+            $: 'host/static/js/$',
+            gridSort: 'widget/gridSort/1.0.0/gridSort'
+        }
+    });
+    </script>
+</head>
+<body>
+    
+    <table border="1" width="100%">
+        <thead>
+            <tr>
+                <th>日期<a href="javascript:;" data-order="desc">↑</a> <a href="javascript:;" data-order="asc">↓</a></th>
+                <th>日期<a href="javascript:;" data-order="desc">↑</a> <a href="javascript:;" data-order="asc">↓</a></th>
+                <th>年龄<a href="javascript:;" data-order="desc">↑</a> <a href="javascript:;" data-order="asc">↓</a></th>
+                <th>金额<a href="javascript:;" data-order="desc">↑</a> <a href="javascript:;" data-order="asc">↓</a></th>
+                <th>数字<a href="javascript:;" data-order="desc">↑</a> <a href="javascript:;" data-order="asc">↓</a></th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>2016-05-15</td><td>2016年05月05日</td><td>30岁</td><td>20,000,000.00</td><td>500</td><td>操作</td></tr>
+            <tr><td>2015-11-15</td><td>2008年09月10日</td><td>27岁</td><td>50,000.00</td><td>900</td><td>操作</td></tr>
+            <tr><td>2014-07-04</td><td>2017年02月12日</td><td>23岁</td><td>67,080,000.00</td><td>34</td><td>操作</td></tr>
+            <tr><td>2013-12-06</td><td>2000年01月01日</td><td>17岁</td><td>3,000,876.00</td><td>97</td><td>操作</td></tr>
+            <tr><td>2012-05-01</td><td>2016年05月15日</td><td>13岁</td><td>6,374,876.00</td><td>6789</td><td>操作</td></tr>
+            <tr><td>2011-02-21</td><td>2005年05月15日</td><td>05岁</td><td>654,987,987.00</td><td>746</td><td>操作</td></tr>
+            <tr><td>2005-06-03</td><td>2004年02月03日</td><td>07岁</td><td>98,050,090.34</td><td>324</td><td>操作</td></tr>
+            <tr><td>1989-01-16</td><td>2002年05月25日</td><td>01岁</td><td>769,000,000.00</td><td>978</td><td>操作</td></tr>
+            <tr><td>1998-09-10</td><td>1999年10月01日</td><td>12岁</td><td>80,000,050.00</td><td>456</td><td>操作</td></tr>
+            <tr><td>2000-02-01</td><td>1998年01月01日</td><td>10岁</td><td>25,050,090.00</td><td>10</td><td>操作</td></tr>
+        </tbody>
+    </table>
+    <script>
+    seajs.use('gridSort', function( GridSort ){
+        
+        
+        jQuery('thead a').on('click', function(){
+            
+            GridSort.sort('tbody', jQuery(this).parent().index(), jQuery(this).data('order') );
+        
+        })
+        
+    });
+    </script>
+</body>
+</html>
